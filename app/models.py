@@ -56,6 +56,7 @@ class TreatmentBase(BaseModel):
     description: Optional[str] = None
     price: float = Field(..., gt=0)
     duration: Optional[str] = None  # "60 minutos", "5 sesiones", etc
+    currency: str = Field(default="CRC", pattern="^(CRC|USD)$")  # CRC o USD
     image_url: Optional[str] = None
     category: Optional[str] = None
     is_active: bool = True
@@ -70,6 +71,7 @@ class TreatmentUpdate(BaseModel):
     description: Optional[str] = None
     price: Optional[float] = Field(None, gt=0)
     duration: Optional[str] = None
+    currency: Optional[str] = Field(None, pattern="^(CRC|USD)$")
     image_url: Optional[str] = None
     category: Optional[str] = None
     is_active: Optional[bool] = None
