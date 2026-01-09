@@ -1,6 +1,7 @@
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from jose import JWTError, jwt
+from jose import jwt
+from jose.exceptions import JWTError
 from datetime import datetime, timedelta
 from app.config import settings
 
